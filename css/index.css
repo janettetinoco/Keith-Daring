@@ -1,0 +1,24 @@
+#game-title{
+    font-family: 'La Belle Aurore', cursive;
+    font-size: 4.5vw;
+    text-align: center;
+}
+
+#game-instructions{
+    display: flex;
+    flex-direction: column;
+    border: 3px solid rgb(223, 4, 4);
+    border-radius:20px;
+    width: 25vw;
+    max-height: 30vh;
+}
+#game-instructions #title{
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    font-size:3.4vh;
+}
+
+#game-body{
+    display: flex;
+    justify-content: space-evenly;
+}
