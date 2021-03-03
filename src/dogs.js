@@ -7,12 +7,12 @@ export default class Dog{
     }
 
     drawDog(ctx){
-        // const dog = new Image();
-        // dog.src = 'src/images/dog_left.png'
-        // ctx.drawImage(dog, this.x, this.y, 85, 120)
+        const dog = new Image();
+        dog.src = 'src/images/dog_left.png'
+        ctx.drawImage(dog, this.x, this.y, 110, 100)
 
-        ctx.fillStyle = "white";
-        ctx.fillRect(this.x, this.y, 30,30)
+        // ctx.fillStyle = "white";
+        // ctx.fillRect(this.x, this.y, 30,30)
     }
 
     animate(ctx){

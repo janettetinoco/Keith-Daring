@@ -1,6 +1,7 @@
 const CONSTANTS = {
     PLAYER_W: 50,
-    PLAYER_H: 50
+    PLAYER_H: 50,
+    GRAVITY: 0.2
 }
 
 export default class Player {
@@ -8,19 +9,24 @@ export default class Player {
         this.velocity = 0;
         this.dimensions = dimensions;
         this.x = this.dimensions.width/12;
-        this.y = this.dimensions.height * .65;
+        this.y = this.dimensions.height * .60;
+        this.height = 0;
     }
     drawPlayer(ctx){
-        // const player = new Image();
-        // player.src = 'src/images/player.png';
-        // ctx.drawImage(player, this.x, this.y, 85, 120)
+        const player = new Image();
+        player.src = 'css/images/player.png';
+        console.log(this.x)
+        console.log(this.y)
+        ctx.drawImage(player, this.x, this.y, 85, 140)
         // player.onload = () => (ctx.drawImage(player, this.x, this.y, 85, 120))
         // this.loadPlayer(ctx);
-        ctx.fillStyle = "black";
-        ctx.fillRect(this.x, this.y, CONSTANTS.PLAYER_W, CONSTANTS.PLAYER_H)
+        // debugger
+        // ctx.fillStyle = "black";
+        // ctx.fillRect(this.x, this.y, CONSTANTS.PLAYER_W, CONSTANTS.PLAYER_H)
     }
     
     animate(ctx){
+        console.log("hello")
         this.move();
         this.drawPlayer(ctx);
     }
@@ -33,11 +39,20 @@ export default class Player {
 
     move(){
         this.x += this.velocity;
-        this.velocity = 1
+        this.y -= this.height;
+        if (this.y - this.height < 345 ){
+            this.height -= CONSTANTS.GRAVITY;
+        }else{
+            this.height = 0;
+        }
     }
 
     speedUp(){
-        this.velocity = 10;
+        this.velocity += .5;
+    }
+
+    jump(){
+        this.height = 8;
     }
 
     bounds(){

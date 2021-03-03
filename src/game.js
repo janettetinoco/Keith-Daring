@@ -1,6 +1,7 @@
 import Level from './level';
 import Player from './player'
 import Dog from './dogs';
+import Heart from './hearts';
 
 export default class KeithGame{
 
@@ -15,10 +16,11 @@ export default class KeithGame{
         this.level.animate(this.ctx);
         this.player.animate(this.ctx);
         //test
-        this.obstacle.animate(this.ctx)
+        // this.obstacle.animate(this.ctx);
+        // this.heart.animate(this.ctx);
         //
 
-        if (this.running) {
+        if (this.gameStarted) {//this needs to happen as you refresh the page
             this.checkCollison();
             requestAnimationFrame(this.animate.bind(this));
         }
@@ -26,10 +28,12 @@ export default class KeithGame{
 
     restart(){
         this.running = false;
+        this.gameStarted=true;//when game is over change to false
         this.player = new Player(this.dimensions);
         this.level = new Level(this.dimensions);
         //testing
         this.obstacle = new Dog(this.dimensions)
+        this.heart = new Heart(this.dimensions);
         //
 
         this.animate();
@@ -42,10 +46,17 @@ export default class KeithGame{
 
     spaceDown(){
         if(!this.running){
-            debugger
             this.play();
         }
+        console.log("hi")
         this.player.speedUp();
+    }
+
+    arrowUpJump(){
+        if (!this.running) {
+            this.play();
+        }
+        this.player.jump();
     }
 
     checkCollison(){
@@ -56,10 +67,18 @@ export default class KeithGame{
 
     eventsHandler(){
         this.spaceBarHandler = this.spaceDown.bind(this);
+        this.arrowUpHAndler = this.arrowUpJump.bind(this);
         window.addEventListener("keydown", (e) => {
             if (e.code === 'Space'){
                 this.spaceBarHandler();
+            }else if(e.code === 'ArrowUp'){
+                this.arrowUpHAndler();
             }
         })
+        window.addEventListener("keyup", (e) => {
+            this.player.velocity = .5;
+        })
+
+
     }
 }

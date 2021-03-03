@@ -11,11 +11,18 @@
     border-radius:20px;
     width: 25vw;
     max-height: 30vh;
+    background: url('images/k_backdrop1.jpg');
+    background-size: cover;
+
 }
 #game-instructions #title{
+    color: white;
+    opacity: 100%;
     font-family: 'Permanent Marker', cursive;
     text-align: center;
-    font-size:3.4vh;
+    font-size:3.6vh;
+    letter-spacing: 3px;
+    z-index:5;
 }
 
 #game-body{
