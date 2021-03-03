@@ -1,3 +1,5 @@
+
+
 export default class Level {
     constructor(dimensions) {
         this.dimensions = dimensions;
@@ -37,5 +39,8 @@ export default class Level {
     animate(ctx) {
         this.drawBackground(ctx)
     }
+
+    
+
 
 }
