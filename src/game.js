@@ -1,13 +1,17 @@
 import Level from './level';
 import Player from './player'
-import Dog from './dogs';
+import {Dog, Flyer, People} from './dogs';
 import Heart from './hearts';
+
 
 export default class KeithGame{
 
     constructor(canvas){
         this.ctx = canvas.getContext("2d");
         this.dimensions = { width: canvas.width, height: canvas.height };
+        this.threats = [];
+        this.obstacle = [];
+        this.frame = 0;
         this.eventsHandler();
         this.restart();
     }
@@ -15,14 +19,31 @@ export default class KeithGame{
     animate(){
         this.level.animate(this.ctx);
         this.player.animate(this.ctx);
+        this.frame ++
         //test
-        // this.obstacle.animate(this.ctx);
+        this.animateObstacles()
         // this.heart.animate(this.ctx);
         //
-
+        let that = this.obstacle
         if (this.gameStarted) {//this needs to happen as you refresh the page
+            if (this.frame % 350 === 0) that.push(new Dog(this.dimensions));
+            if (this.frame % 700 === 0 && this.player.y < 200) that.push(new Flyer(this.dimensions));
+            if ( this.obstacle.length % 6 === 0) that.push(new People(this.dimensions));
+
+
+
             this.checkCollison();
             requestAnimationFrame(this.animate.bind(this));
+        }
+    }
+
+    animateObstacles(){
+        for (let i = 0; i < this.obstacle.length; i++) {
+            this.obstacle[i].animate(this.ctx);
+            if(this.obstacle[i].x < 0){
+                debugger
+                this.obstacle.splice(0,1);
+            }
         }
     }
 
@@ -31,9 +52,9 @@ export default class KeithGame{
         this.gameStarted=true;//when game is over change to false
         this.player = new Player(this.dimensions);
         this.level = new Level(this.dimensions);
+        this.frame = 0;
         //testing
-        this.obstacle = new Dog(this.dimensions)
-        this.heart = new Heart(this.dimensions);
+        // this.heart = new Heart(this.dimensions);
         //
 
         this.animate();
@@ -48,7 +69,6 @@ export default class KeithGame{
         if(!this.running){
             this.play();
         }
-        console.log("hi")
         this.player.speedUp();
     }
 
@@ -60,9 +80,14 @@ export default class KeithGame{
     }
 
     checkCollison(){
-        if (this.player.bounds().right > this.obstacle.x && this.player.bounds().bottom > this.obstacle.y && this.player.bounds().left < this.obstacle.x+30){
-            alert("youre hit")
+        // debugger
+        let bounds = this.player.bounds();
+        for (let i = 0; i < this.obstacle.length; i++){
+            let obs = this.obstacle[i];
+            if(obs instanceof Dog && obs.x < bounds.right && bounds.left < obs.x && bounds.bottom > obs.y-150) alert('you hit')
+            if (obs instanceof Flyer && obs.x < bounds.right && bounds.left < obs.x && obs.y+ obs.height-500 > bounds.top) alert('you hit')
         }
+
     }
 
     eventsHandler(){
@@ -76,9 +101,13 @@ export default class KeithGame{
             }
         })
         window.addEventListener("keyup", (e) => {
-            this.player.velocity = .5;
+            this.player.velocity = .2;
         })
 
+
+    }
+
+    addObstacle(){
 
     }
 }

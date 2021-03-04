@@ -1,12 +1,12 @@
 const CONSTANTS = {
-    PLAYER_W: 50,
-    PLAYER_H: 50,
+    PLAYER_W: 85,
+    PLAYER_H: 140,
     GRAVITY: 0.2
 }
 
 export default class Player {
     constructor(dimensions) {
-        this.velocity = 0;
+        this.velocity = .2;
         this.dimensions = dimensions;
         this.x = this.dimensions.width/12;
         this.y = this.dimensions.height * .60;
@@ -17,7 +17,7 @@ export default class Player {
         player.src = 'css/images/player.png';
         console.log(this.x)
         console.log(this.y)
-        ctx.drawImage(player, this.x, this.y, 85, 140)
+        ctx.drawImage(player, this.x, this.y, CONSTANTS.PLAYER_W, CONSTANTS.PLAYER_H)
         // player.onload = () => (ctx.drawImage(player, this.x, this.y, 85, 120))
         // this.loadPlayer(ctx);
         // debugger
@@ -48,11 +48,11 @@ export default class Player {
     }
 
     speedUp(){
-        this.velocity += .5;
+        this.velocity += .2;
     }
 
     jump(){
-        this.height = 8;
+        this.height = 5;
     }
 
     bounds(){
