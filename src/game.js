@@ -52,7 +52,6 @@ export default class KeithGame{
                 this.running = false;
                 Window.finalScore.innerHTML = this.score;
                 this.restart();
-                
             }
             requestAnimationFrame(this.animate.bind(this));
 
