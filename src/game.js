@@ -2,7 +2,7 @@ import Level from './level';
 import Player from './player'
 import {Dog, Flyer, People, Skater, Toaster} from './obstacles';
 import Heart from './hearts';
-import * as Window from './user_windows';
+import * as Window from '../src/index';
 
 
 export default class KeithGame{
@@ -16,7 +16,7 @@ export default class KeithGame{
         this.eventsHandler();
         this.restart();
         this.x_coord = 800;
-        
+        this.running = false;
         this.score = 0
     }
 
@@ -64,7 +64,7 @@ export default class KeithGame{
     }
 
     restart(){
-        this.running = true;//when game is over change to false
+        this.running = false;//when game is over change to false
         this.player = new Player(this.dimensions);
         this.level = new Level(this.dimensions, this.ctx);
         this.frame = 0;

@@ -2,7 +2,7 @@ body{
     position: relative;
 }
 
-.hidden{
+div.hidden{
   display: none;
 }
 .game-intro h1{
@@ -17,12 +17,14 @@ body{
     padding: 4vh 0vh 5vh 0vh;
     font-family: 'La Belle Aurore', cursive;
     text-align: center;
+    text-shadow: 0 0 7px #c4c4c4;
 }
 
 .game-intro h3{
     font-size: 1.6vw;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 
@@ -43,8 +45,58 @@ body{
    align-items: center;
    text-align: left;
    flex-direction: column;
+}
+
+#intro-instructions{
+    border-top: 1px solid rgba(255, 255, 255, 0.808);
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 10vh;
+    height:30vh;
+    font-size: 1.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
+
+#intro-obj{
+    margin-bottom: 20px;
+}
+img#heart{
+    height:40px;
+    width:41px;
+    /* background-color: white; */
+}
+.direction{
+    padding:10px;
+}
+
+#start-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:5vh;
+    width:10vw;
+    background: white;
+    border-radius: 10px;
+    border:none;
+    font-size: 4vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#button-span{
+    font-weight: 500;
+    border: 1px solid white;
+    padding: 3px 5px;
+    border-radius: 6px;
+    background-color: #ffffffcc;
+    color: black;
+}
+#start-button:hover{
+    box-shadow: 0 0 8px 2px white;
+}
+
+
 #game-title{
     padding: 3vh 0vh;
     font-family: 'La Belle Aurore', cursive;
@@ -71,6 +123,7 @@ body{
     height:5vh;
     width:auto;
 }
+
 #spacebar{
     width:7vw;
     height:5vh;
@@ -96,7 +149,6 @@ p{
     text-align: center;
     font-size:3.6vh;
     letter-spacing: 3px;
-    z-index:5;
 }
 
 #game-body{

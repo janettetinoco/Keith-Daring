@@ -15,20 +15,28 @@
 </head>
 
 <body>
-    <!-- <div class="game-intro">
+    <div class="game-intro">
         <h1>Welcome to</h1>
         <h2>Keith Daring</h2>
 
         <h3>A game inspired by the steet artist, Keith Haring.</h3>
+        <div id="intro-instructions">
+            <div id="intro-obj"> <img id="heart" src='css/images/heart-2.png' />
+                Help Keith get to the subway while capturing hearts
+                <img id="heart" src='css/images/heart-2.png' />
+            </div>
+            <div class="direction">Hit <span id="button-span">space bar</span> to speed up</div>
+            <div class="direction">Hit <span id="button-span">arrow up</span> to jump</div>
+        </div>
 
-        <div> Help Keith get to the subway while capturing hearts</div>
-        <div>Hit space bar to jump</div>
-        <div>Hit arrow up to speed up</div>
-    </div> -->
+        <div id="intro-buttons">
+            <button id="start-button"><span>Start</span></button>
+        </div>
+    </div>
 
    
     <div id="game" >
-        <div id="canvas">
+        <div id="game-canvas" class="hidden">
             <h1 id="game-title" >Keith Daring</h1>
             <div id="score-card">
                 score: <span id="score" value="0" min></span>
