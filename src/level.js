@@ -1,8 +1,12 @@
 
 
 export default class Level {
-    constructor(dimensions) {
+    constructor(dimensions, context) {
         this.dimensions = dimensions;
+        this.canvasWidth= this.dimensions.width;
+        // this.x=0;
+        // this.drawBase(context);
+        // this.drawDots(context);
     }
 
     drawBackground(ctx) {
@@ -13,19 +17,14 @@ export default class Level {
     }
     drawBase(context){
         context.lineWidth = 3;
-        context.moveTo(1, 480);
-        context.lineTo(100, 466)
-        context.lineTo(320, 468)
-        context.lineTo(350, 470)
-        context.lineTo(500, 466)
-        context.lineTo(900, 475)
-        context.stroke();
-
+        context.fillStyle = "black"
+        context.fillRect(0,475, this.canvasWidth, 7)
     }
 
     drawDots(context){
         context.fillStyle = "black"
-        for(let i = 1; i < 900 ; i= i+40){
+
+        for (let i = 1; i < this.canvasWidth; i = i + 40) {
             context.fillRect(i + 25, 475, 10, 9)
             context.fillRect(i, 490, 10, 9)
             context.fillRect(i + 28, 505, 10, 9)
@@ -33,11 +32,31 @@ export default class Level {
             context.fillRect(i + 28, 530, 10, 9)
             context.fillRect(i, 545, 10, 9)
         }
+        // for(let i = 1; i < 900 ; i= i+40){
+        //     context.fillRect(this.x + i + 25 , 475, 10, 9)
+        //     context.fillRect(this.x + i, 490, 10, 9)
+        //     context.fillRect(this.x + i + 28, 505, 10, 9)
+        //     context.fillRect(this.x + i + 13, 518, 10, 8)
+        //     context.fillRect(this.x + i + 28, 530, 10, 9)
+        //     context.fillRect(this.x + i, 545, 10, 9)
+        // }
+
+        // for (let i = 1; i < 900; i = i + 40) {
+        //     context.fillRect(this.canvasWidth + this.x + i + 25, 475, 10, 9)
+        //     context.fillRect(this.canvasWidth + this.x + i, 490, 10, 9)
+        //     context.fillRect(this.canvasWidth + this.x + i + 28, 505, 10, 9)
+        //     context.fillRect(this.canvasWidth + this.x + i + 13, 518, 10, 8)
+        //     context.fillRect(this.canvasWidth + this.x + i + 28, 530, 10, 9)
+        //     context.fillRect(this.canvasWidth + this.x + i, 545, 10, 9)
+        // }
     }
 
 
     animate(ctx) {
-        this.drawBackground(ctx)
+       this.drawBackground(ctx)
+        
+        // if (this.x === -1 * this.canvasWidth) this.x = 0;
+        // this.x -= 0.2
     }
 
     
