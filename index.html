@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="game-intro">
+    <div class="game-intro" >
         <h1>Welcome to</h1>
         <h2>Keith Daring</h2>
 
@@ -39,16 +39,31 @@
         <div id="game-canvas" class="hidden">
             <h1 id="game-title" >Keith Daring</h1>
             <div id="score-card">
-                score: <span id="score" value="0" min></span>
+                score: <span id="score" value="0" ></span>
             </div>
-            <canvas id="game-board" height="550" width="1000"></canvas>
-            <div id="game-instructions">
-                <h1 id ="title">Instructions</h1>
-                <div className="inst-block">
-                    <p >
-                        Press <img  id="spacebar" src='css/images/space.png'/> to speed up</br>
-                        Prees <img id="arrowup" src='css/images/arrowup.png'/> to jump and avoid obstacles
-                    </p>
+            <div id="game-body">
+                <div id="canvas-container">
+                    <div>
+                        <div>You did it!</div>
+                        <div><span id="final-score" value="0" ></span></div>
+                    </div>
+                    <div id="game-over" class="hidden">
+                    </br>
+                        <div>Better luck next time!</div>
+                        <button id="restart-button">Try again</button>
+                    </div>
+                    <canvas id="game-board" height="550" width="1000"></canvas>
+
+                </div>
+               
+                <div id="game-instructions">
+                    <h1 id ="title">Instructions</h1>
+                    <div className="inst-block">
+                        <p >
+                            Press <img  id="spacebar" src='css/images/space.png'/> to speed up</br>
+                            Prees <img id="arrowup" src='css/images/arrowup.png'/> to jump and avoid obstacles
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

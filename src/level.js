@@ -1,10 +1,10 @@
 
 
 export default class Level {
-    constructor(dimensions, context) {
+    constructor(dimensions) {
         this.dimensions = dimensions;
         this.canvasWidth= this.dimensions.width;
-        // this.x=0;
+        this.x=1000;
         // this.drawBase(context);
         // this.drawDots(context);
     }
@@ -14,6 +14,7 @@ export default class Level {
         ctx.fillRect(0, 0, this.dimensions.width, this.dimensions.height);
         this.drawBase(ctx);
         this.drawDots(ctx)
+
     }
     drawBase(context){
         context.lineWidth = 3;
@@ -52,11 +53,15 @@ export default class Level {
     }
 
 
-    animate(ctx) {
+    animate(ctx, player) {
        this.drawBackground(ctx)
         
-        // if (this.x === -1 * this.canvasWidth) this.x = 0;
-        // this.x -= 0.2
+        if (player.x >800) {
+            let subway = new Image();
+            subway.src = 'css/images/subway.png';
+            ctx.drawImage(subway, this.x, 275, 275, 275)
+            this.x -= 1
+        }
     }
 
     

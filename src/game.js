@@ -16,16 +16,15 @@ export default class KeithGame{
         this.eventsHandler();
         this.restart();
         this.x_coord = 800;
-        this.running = false;
         this.score = 0
     }
 
     animate(){
         if(this.score < 0){
-            alert("GAME OVER")
             this.running = false;
+            Window.gameOver.classList.remove('hidden')
         }
-        this.level.animate(this.ctx);
+        this.level.animate(this.ctx, this.player);
         this.player.animate(this.ctx, this.frame);
         this.frame ++
         //tets
@@ -33,11 +32,11 @@ export default class KeithGame{
         // this.heart.animate(this.ctx);
         //
         let that = this.obstacle
-        if (this.running) {//this needs to happen as you refresh the page
-            if (this.frame % 450 === 0 && this.obstacle.length < 3 || this.frame === 4) that.push(new Dog(this.dimensions));
-            if (this.frame % 700 === 0 && this.player.y < 200 || this.frame === 10) that.push(new Flyer(this.dimensions));
-            if (this.obstacle.length < 2 && this.frame % 600 === 0 && !this.obstacle.some((ele) => ele instanceof People)) that.push(new People(this.dimensions));
-            if (this.obstacle.length === 1 && this.frame % 50 === 0 && !this.obstacle.some((ele) => ele instanceof Skater)) that.push(new Skater(this.dimensions));
+        if (this.running) {
+            if (this.frame % 400 === 0 && this.obstacle.length < 3 || this.frame === 4) that.push(new Dog(this.dimensions));
+            if (this.frame % 500 === 0 && this.player.y < 200 || this.frame === 10) that.push(new Flyer(this.dimensions));
+            if (this.obstacle.length < 4 && this.frame % 150 === 0 && !this.obstacle.some((ele) => ele instanceof People)) that.push(new People(this.dimensions));
+            if (this.obstacle.length === 3 && this.frame % 50 === 0 && !this.obstacle.some((ele) => ele instanceof Skater) || this.frame ===20) that.push(new Skater(this.dimensions));
             if (!this.obstacle.some((ele) => ele instanceof Heart) && this.obstacle.length > 1) that.push(new Heart(this.dimensions));
             if (!this.obstacle.some((ele) => ele instanceof Toaster)) that.push(new Toaster(this.dimensions));
 
@@ -49,6 +48,12 @@ export default class KeithGame{
             }
 
             this.checkCollison();
+            if(this.player.bounds().right >= 1000){
+                this.running = false;
+                Window.finalScore.innerHTML = this.score;
+                this.restart();
+                
+            }
             requestAnimationFrame(this.animate.bind(this));
 
         }
@@ -96,10 +101,10 @@ export default class KeithGame{
         for (let i = 0; i < this.obstacle.length; i++){
             let obs = this.obstacle[i];
             if(obs instanceof Dog && obs.x < bounds.right && bounds.left < obs.x && bounds.bottom > obs.y-150) this.score -= 5 ;
-            if (obs instanceof Flyer && obs.x+10 < bounds.right && bounds.left < obs.x && obs.y + obs.height - 5 < bounds.top) this.score -= 5
+            if (obs instanceof Flyer && obs.x + 10 < bounds.right && bounds.left < obs.x && obs.y - 550 + obs.height  > bounds.top) this.score -= 5
             if (obs instanceof People && obs.x < bounds.right && bounds.left < obs.x && bounds.bottom > obs.y - 150) this.score -= 5
             if (obs instanceof Skater && obs.x < bounds.right && bounds.left < obs.x && bounds.bottom > obs.y - 160) this.score -= 5
-            if (obs instanceof Toaster && obs.x < bounds.right && bounds.left < obs.x && bounds.bottom > obs.y - 160) this.score -= 5
+            if (obs instanceof Toaster && obs.x < bounds.right && bounds.left < obs.x && bounds.top < obs.y-480 + obs.height-10) this.score -= 5
 
             if (obs instanceof Heart && obs.x < bounds.right && bounds.left < obs.x && bounds.bottom > obs.y - 100){
                 this.score === 0 ? this.score = 100 : this.score +=100

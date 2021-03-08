@@ -23,7 +23,7 @@ class Dog extends Obstacles{
         super(dimensions);
         this.height = 100;
         this.width = 110;
-        this.velocity = Math.floor(Math.random() * 2) + 1;
+        this.velocity = Math.floor(Math.random() * 3) + 1;
     }
 
     drawDog(ctx){
@@ -70,7 +70,7 @@ class People extends Obstacles{
         super(dimensions);
         this.height = 150;
         this.width = 220;
-        this.velocity = (Math.random() * 3)+1;
+        this.velocity = (Math.random() * 4)+1;
     }
 
     drawDog(ctx) {
@@ -92,7 +92,7 @@ class Skater extends Obstacles {
         super(dimensions);
         this.height = 100;
         this.width = 130;
-        this.velocity = 4;
+        this.velocity = 5;
     }
 
     drawSkater(ctx) {
@@ -127,7 +127,7 @@ class Toaster extends Obstacles {
     move(){
         var increase = Math.PI * 2 / 100;
 
-        this.x -= 1;
+        this.x -= 3;
         this.y += Math.sin(this.counter/2);
         this.counter += increase;
     }

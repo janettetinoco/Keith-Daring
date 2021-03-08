@@ -5,7 +5,7 @@ export default class Hearts {
         this.y = this.dimensions.height ;
         this.width = 60;
         this.height = 50;
-        this.velocity = 2
+        this.velocity = 3;
     }
 
     drawHeart(ctx) {
