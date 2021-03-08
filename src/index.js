@@ -10,6 +10,7 @@ export const startButton = document.querySelector('#start-button')
 export const gameScreen = document.querySelector('#game-canvas')
 export const gameOver = document.querySelector('#game-over')
 export const restartButton = document.querySelector('#game-over')
+export const finalContainer = document.querySelector('#final-container')
 
 
 

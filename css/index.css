@@ -112,7 +112,7 @@ img#heart{
     border: 3px solid rgb(223, 4, 4);
     border-radius:20px;
     width: 21vw;
-    max-height: 30vh;
+    max-height: 25vh;
     background: url('images/k_backdrop1.jpg');
     background-size: cover;
     color: white;
@@ -149,6 +149,7 @@ p{
     text-align: center;
     font-size:3.6vh;
     letter-spacing: 3px;
+    margin: 20px 0px;
 }
 
 #game-body{
@@ -203,4 +204,14 @@ canvas{
     box-shadow: 0 0 8px 2px white;
 }
 
+
+#final-container{
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-family: 'Permanent Marker';
+    font-size: 5vw;
+    left: 200px;
+    top:160px;
+}
 

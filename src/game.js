@@ -51,6 +51,7 @@ export default class KeithGame{
             if(this.player.bounds().right >= 1000){
                 this.running = false;
                 Window.finalScore.innerHTML = this.score;
+                Window.finalContainer.classList.remove('hidden')
                 this.restart();
             }
             requestAnimationFrame(this.animate.bind(this));
