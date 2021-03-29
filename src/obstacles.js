@@ -29,7 +29,7 @@ class Dog extends Obstacles{
     drawDog(ctx){
         const dog = new Image();
         dog.src = 'css/images/dog_left.png'
-        ctx.clearRect(dog, this.x, this.y - 150, this.width, this.height)
+        // ctx.clearRect(dog, this.x, this.y - 150, this.width, this.height)
         ctx.drawImage(dog, this.x, this.y - 150, this.width, this.height)
 
         // ctx.fillStyle = "white";
@@ -54,7 +54,7 @@ class Flyer extends Obstacles{
     drawFlyer(ctx){
         const flyer = new Image();
         flyer.src = 'css/images/flyer.png';
-        ctx.clearRect(flyer, this.x, this.y - 550, this.width, this.height)
+        // ctx.clearRect(flyer, this.x, this.y - 550, this.width, this.height)
         ctx.drawImage(flyer, this.x, this.y - 550, this.width, this.height)
 
     }
@@ -76,7 +76,7 @@ class People extends Obstacles{
     drawDog(ctx) {
         const dog = new Image();
         dog.src = 'css/images/dancers.png'
-        ctx.clearRect(dog, this.x, this.y - 210, this.width, this.height)
+        // ctx.clearRect(dog, this.x, this.y - 210, this.width, this.height)
         ctx.drawImage(dog, this.x, this.y - 210, this.width, this.height)
     }
 
@@ -98,7 +98,7 @@ class Skater extends Obstacles {
     drawSkater(ctx) {
         const skater = new Image();
         skater.src = 'css/images/skater.png'
-        ctx.clearRect(skater, this.x, this.y - 160, this.width, this.height)
+        // ctx.clearRect(skater, this.x, this.y - 160, this.width, this.height)
         ctx.drawImage(skater, this.x, this.y-160, this.width, this.height)
     }
 
@@ -120,7 +120,7 @@ class Toaster extends Obstacles {
     drawSkater(ctx) {
         const toaster = new Image();
         toaster.src = 'css/images/toaster.png'
-        ctx.clearRect(toaster, this.x, this.y - 480, this.width, this.height)
+        // ctx.clearRect(toaster, this.x, this.y - 480, this.width, this.height)
         ctx.drawImage(toaster, this.x, this.y - 480, this.width, this.height)
     }
 

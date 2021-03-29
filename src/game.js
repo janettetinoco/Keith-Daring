@@ -20,6 +20,8 @@ export default class KeithGame{
     }
 
     animate(){
+        this.ctx.clearRect(0,0, this.dimensions.width, this.dimensions.height);
+        ///clear everything here using clearRect, take it out of the obstacles draw method
         if(this.score < 0){
             this.running = false;
             Window.gameOver.classList.remove('hidden')
@@ -93,6 +95,8 @@ export default class KeithGame{
     arrowGoBack(){
         if(this.running){
             this.player.faceLeft();
+        }else{
+            this.running=true;
         }
     }
 
