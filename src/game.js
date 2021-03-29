@@ -25,7 +25,8 @@ export default class KeithGame{
         ///clear everything here using clearRect, take it out of the obstacles draw method
         if(this.score < 0){
             this.running = false;
-            Window.gameOver.classList.remove('hidden')
+            Window.gameOver.classList.remove('hidden');
+            Window.scoreDiv.classList.add('hidden');
         }
         this.level.animate(this.ctx, this.player);
         this.player.animate(this.ctx, this.frame);

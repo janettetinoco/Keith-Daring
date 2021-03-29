@@ -169,9 +169,9 @@ canvas{
 
 #score-card{
     position: absolute;
-    padding:1vh 5vw;
-    left: 1vw;
-    z-index: 4;
+    left: 15px;
+    top:7px;
+    z-index: 10;
     text-align: left;
     font-family: 'Permanent Marker', cursive;
     font-size: 4.5vh;
@@ -200,7 +200,7 @@ canvas{
     background: white;
     border-radius: 10px;
     border:none;
-    font-size: 4vh;
+    font-size: 3vh;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -235,3 +235,6 @@ canvas{
     
 }
 
+#game-board{
+    position:relative;
+}
