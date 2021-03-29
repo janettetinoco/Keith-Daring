@@ -110,11 +110,12 @@ img#heart{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     border: 3px solid rgb(223, 4, 4);
     border-radius:20px;
-    width: 21vw;
-    max-height: 25vh;
-    background: url('images/k_backdrop1.jpg');
+    width: 23vw;
+    height: 35vh;
+    background: url('images/backdrop.jpg');
     background-size: cover;
     color: white;
 
@@ -131,18 +132,20 @@ img#heart{
 }
 
 
-p{
+.inst-block{
+    width:90%;
     padding: 10px;
     z-index: 3;
     text-align: center;
     background: rgb(43, 41, 41);
-    border-radius: 10px;
+    border-radius: 15px;
     color: white;
     font-family: 'Permanent Marker';
     line-height: 1.9;
     font-size: medium;
-
 }
+
+
 #game-instructions #title{
     color: white;
     opacity: 100%;
@@ -150,7 +153,7 @@ p{
     text-align: center;
     font-size:3.6vh;
     letter-spacing: 3px;
-    margin: 20px 0px;
+    text-decoration: underline;
 }
 
 #game-body{
@@ -190,7 +193,7 @@ canvas{
     text-align: center;
 }
 
-#restart-button{
+#restart-button, #play-again-button{
     left:200px;
     height:6vh;
     width:12vw;
@@ -202,6 +205,9 @@ canvas{
 }
 
 #restart-button:hover{
+    box-shadow: 0 0 8px 2px white;
+}
+#play-again-button:hover{
     box-shadow: 0 0 8px 2px white;
 }
 

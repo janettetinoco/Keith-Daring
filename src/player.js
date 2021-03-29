@@ -7,7 +7,7 @@ const CONSTANTS = {
 }
 export default class Player {
     constructor(dimensions) {
-        this.velocity = 0.4;
+        this.velocity = 0.5;
         this.dimensions = dimensions;
         this.x = this.dimensions.width/40;
         this.y = this.dimensions.height * .45;
@@ -54,8 +54,8 @@ export default class Player {
     //     player.src = 'src/images/player.png';
     // }
 
-    move(){
-        this.x += this.velocity;
+    move(level){
+        this.x += (this.velocity);
         this.y -= this.height;
         if (this.y - this.height < 335 ){
             this.height -= CONSTANTS.GRAVITY;

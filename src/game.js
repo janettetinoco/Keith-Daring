@@ -17,6 +17,7 @@ export default class KeithGame{
         this.restart();
         this.x_coord = 800;
         this.score = 0
+        // this.level = 1;
     }
 
     animate(){
@@ -39,7 +40,7 @@ export default class KeithGame{
             if (this.frame % 500 === 0 && this.player.y < 200 || this.frame === 10) that.push(new Flyer(this.dimensions));
             if (this.obstacle.length < 4 && this.frame % 150 === 0 && !this.obstacle.some((ele) => ele instanceof People)) that.push(new People(this.dimensions));
             if (this.obstacle.length === 3 && this.frame % 50 === 0 && !this.obstacle.some((ele) => ele instanceof Skater) || this.frame ===20) that.push(new Skater(this.dimensions));
-            if (!this.obstacle.some((ele) => ele instanceof Heart) && this.obstacle.length > 1) that.push(new Heart(this.dimensions));
+            if (!this.obstacle.some((ele) => ele instanceof Heart) && this.obstacle.length > 1 && this.player.x < 900) that.push(new Heart(this.dimensions));
             if (!this.obstacle.some((ele) => ele instanceof Toaster)) that.push(new Toaster(this.dimensions));
 
             if(this.player.x >300){
@@ -52,9 +53,11 @@ export default class KeithGame{
             this.checkCollison();
             if(this.player.bounds().right >= 1000){
                 this.running = false;
-                Window.finalScore.innerHTML = this.score;
+                Window.finalScore.innerHTML = this.score;;
+                Window.scoreDiv.classList.add('hidden');
                 Window.finalContainer.classList.remove('hidden')
                 this.restart();
+                // this.level += 1;
             }
             requestAnimationFrame(this.animate.bind(this));
 
