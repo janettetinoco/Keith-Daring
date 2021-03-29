@@ -5,6 +5,8 @@ Live link to [Keith Daring](https://janettetinoco.github.io/Keith-Daring/)
 
 <img width="800" alt="Screen Shot 2021-03-29 at 8 10 54 AM" src="https://user-images.githubusercontent.com/52670122/112858916-3202af00-9067-11eb-8c66-ac76a0bbb2d1.png">
 
+<img width="800" alt="project_pic" src="https://user-images.githubusercontent.com/52670122/112862453-a0953c00-906a-11eb-82a6-5e8a8940f4d0.png">
+
 ## Technologies
 * Vanilla Javvascript
 * HTML/CSS
