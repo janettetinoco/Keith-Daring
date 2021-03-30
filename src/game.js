@@ -18,7 +18,10 @@ export default class KeithGame{
         this.x_coord = 800;
         this.score = 0
         // this.level = 1;
+        this.soundOn=true;
     }
+
+  
 
     animate(){
         this.ctx.clearRect(0,0, this.dimensions.width, this.dimensions.height);

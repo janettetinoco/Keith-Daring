@@ -171,7 +171,7 @@ canvas{
     position: absolute;
     left: 15px;
     top:7px;
-    z-index: 10;
+    z-index: 4;
     text-align: left;
     font-family: 'Permanent Marker', cursive;
     font-size: 4.5vh;
@@ -200,7 +200,7 @@ canvas{
     background: white;
     border-radius: 10px;
     border:none;
-    font-size: 3vh;
+    font-size: 2vw;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -218,8 +218,12 @@ canvas{
     color: white;
     font-family: 'Permanent Marker';
     font-size: 5vw;
-    left: 200px;
     top:160px;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 #about-links{
     position: fixed;
@@ -237,4 +241,17 @@ canvas{
 
 #game-board{
     position:relative;
+}
+
+
+#sound-icon{
+    right:20px;
+    top:20px;
+    position:absolute;
+    z-index:100;
+}
+
+#sound-icon img{
+    height:30px;
+    width:auto;
 }

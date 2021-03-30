@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    <audio loop id="audio">
-        <!-- <source src="./assets/POL-foggy-forest-long.wav" type="audio/wav"> -->
-    </audio>
+   
     <meta property="og:title" content="Keith Daring" />
     <meta property="og:image" content="./css/images/project_pic.png" />
     <meta property="og:description" content="A game inspired by street artist Keith Haring, where the objective is to get to the subway station while avoiding all of the obstacles." />
@@ -22,12 +20,15 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Montserrat&family=Permanent+Marker&display=swap"');
         </style>
+        <audio loop id="audio">
+            <source src="./src/audio/kd-music.mp3" type="audio/mpeg">
+        </audio>
 </head>
 
 <body>
+    <div id="sound-icon"><img src="https://img.icons8.com/ios-filled/50/4a90e2/mute--v1.png" /></div>
     <div class="game-intro" >
-        <!-- <div id="sound-icon-white"><img src="https://img.icons8.com/ios-filled/50/ffffff/room-sound.png" /></div>
-        <div id="mute-icon-white"><img src="https://img.icons8.com/ios-filled/50/ffffff/mute--v1.png" /></div> -->
+        <!-- <div id="mute-icon-white"><img src="https://img.icons8.com/ios-filled/50/ffffff/mute--v1.png" /></div> -->
         <h1>Welcome to</h1>
         <h2>Keith Daring</h2>
 
